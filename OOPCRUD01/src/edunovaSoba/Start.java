@@ -1,9 +1,13 @@
 package edunovaSoba;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
+
+import javax.swing.text.DefaultEditorKit.BeepAction;
 
 
 
@@ -15,9 +19,11 @@ public class Start {
 	//Potrebno je napraviti metodu koja pri pokretanju programa unosi test slučajno 20 generiranih entiteta s svim popunjenim svojstvima.
 	private List<Soba> sobe;
 	
-	public Start() throws ParseException {
+	public Start()  {
 		sobe = new ArrayList<Soba>(); 
-		izbornik();
+		//slucajneSobe();
+		//izbornik();
+		randomSobe();
 	}
 	
 	
@@ -33,6 +39,31 @@ public class Start {
 	    odrediAkciju();
 	   
 	}
+	//Potrebno je napraviti metodu koja pri pokretanju programa unosi test slučajno 20 generiranih entiteta s svim popunjenim svojstvima.
+private void randomSobe () {
+	// za datume uzimam RANDOMDATUM koji sadrzi pocetak godine i kraj!!
+	
+//preurediti output da je uredno ispisan
+	//dodati petlju za redne brojeve soba!
+	//metoda za random :
+	//1. kreiran local date
+	//2. posudjen local date
+	//3. int postanski broj min 1000 max 9999 velicine
+	//4 int sifra min 1 max 10000
+	// boolean zabranjen 
+	Soba soba = new Soba();
+	//soba.set
+	for(int i = 1; i<=20; i++) {
+		soba.setNapravljen(Pomocno.randomDatum(1000, 2019));
+		sobe.add(soba);
+		System.out.println("Soba" + soba + "je uspjesno dodana");
+	}
+	
+}
+
+			
+	
+	
 	private List<Program> noviProgram() {
 		List<Program> programi = new ArrayList<Program>();
 		while(true) {
@@ -51,11 +82,8 @@ public class Start {
 		program.setPrezime(Pomocno.ucitajString("Unesi prezime"));
 		program.setSifra(Pomocno.ucitajBroj("Upisi sifru"));
 		program.setObrisan(Pomocno.zabranjeno("Upisi da li je obrisan DA/NE"));
-		try {
-			program.setDatum(Pomocno.unesiDatum("Unesi datum programa"));
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+		program.setDatum(Pomocno.lokalDatum("Unesi datum programa"));
+		
 		return program;
 		
 		}
@@ -128,34 +156,23 @@ private void unosNoveSobe() {
 			Soba soba = new Soba();
 			
 			soba.setSvojstvaPrograma(noviProgram());
-//			soba.setSifra(Pomocno.ucitajBroj("Sifra Sobe je:"));
-//						try {
-//				soba.setNapravljen(Pomocno.unesiDatum("Upisi kada je soba napravljena:"));
-//			} catch (ParseException e) {
-//				
-//				e.printStackTrace();
-//			}
-//			try {
-//				soba.setKreiran(Pomocno.unesiDatum("Upisi kada je soba kreirana:"));
-//			} catch (ParseException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//			try {
-//				soba.setPosudjen(Pomocno.unesiDatum("Upisi kada je soba posudjena:"));
-//			} catch (ParseException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//			soba.setPostanskiBroj(Pomocno.ucitajBroj("Upisi postanski broj:"));
-//			
+			
+			soba.setSifra(Pomocno.ucitajBroj("Sifra Sobe je:"));
+						
+			soba.setNapravljen(Pomocno.lokalDatum("Upisi kada je soba napravljena:"));
+			soba.setKreiran(Pomocno.lokalDatum("Upisi kada je soba kreirana:"));
+			soba.setPosudjen(Pomocno.lokalDatum("Upisi kada je soba posudjena:"));
+			
+			soba.setPostanskiBroj(Pomocno.ucitajBroj("Upisi postanski broj:"));
+			
 			soba.setZabranjen(Pomocno.zabranjeno("Je li soba zabranjena DA/NE?"));
+			
 			sobe.add(soba);
 			System.out.println("Vrijednost " + soba + " je uspjesno dodana" );
 		
 }
 
-public static void main(String[] args) throws ParseException{
+public static void main(String[] args) {
 	new Start();
 }
 }

@@ -1,6 +1,7 @@
 package edunovaSoba;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Program {
@@ -11,14 +12,14 @@ private int sifra;
 private boolean obrisan;
 private String naziv;
 private String prezime;
-private Date datum;
+private LocalDate datum;
 private int mobitel;
 
   public Program() {
 
   }
   
-  public Program(int sifra, boolean obrisan, String naziv, String prezime, Date datum, int mobitel) {
+  public Program(int sifra, boolean obrisan, String naziv, String prezime, LocalDate datum, int mobitel) {
 
 	this.sifra = sifra;
 	this.obrisan = obrisan;
@@ -61,11 +62,11 @@ public void setPrezime(String prezime) {
 	this.prezime = prezime;
 }
 
-public Date getDatum() {
+public LocalDate getDatum() {
 	return datum;
 }
 
-public void setDatum(Date datum) {
+public void setDatum(LocalDate datum) {
 	this.datum = datum;
 }
 

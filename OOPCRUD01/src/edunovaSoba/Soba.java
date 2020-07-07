@@ -13,10 +13,10 @@ public class Soba {
 	
 	 private int sifra;
 	 private boolean zabranjen;
-	 private Date napravljen;
-	 private Date posudjen;
+	 private LocalDate napravljen;
+	 private LocalDate posudjen;
 	 private int postanskiBroj;
-	 private Date kreiran;
+	 private LocalDate kreiran;
 	 private List<Program> svojstvaPrograma;
 	 
 	public Soba() {
@@ -24,8 +24,8 @@ public class Soba {
 	}
 	
 
-	public Soba(int sifra, boolean zabranjen, Date napravljen, Date posudjen, int postanskiBroj,
-			Date kreiran, List<Program> svojstvaPrograma) {
+	public Soba(int sifra, boolean zabranjen, LocalDate napravljen, LocalDate posudjen, int postanskiBroj,
+			LocalDate kreiran, List<Program> svojstvaPrograma) {
 		super();
 		this.sifra = sifra;
 		this.zabranjen = zabranjen;
@@ -57,22 +57,22 @@ public class Soba {
 	}
 
 
-	public Date getNapravljen() {
+	public LocalDate getNapravljen() {
 		return napravljen;
 	}
 
 
-	public void setNapravljen(Date napravljen) {
+	public void setNapravljen(LocalDate napravljen) {
 		this.napravljen = napravljen;
 	}
 
 
-	public Date getPosudjen() {
+	public LocalDate getPosudjen() {
 		return posudjen;
 	}
 
 
-	public void setPosudjen(Date posudjen) {
+	public void setPosudjen(LocalDate posudjen) {
 		this.posudjen = posudjen;
 	}
 
@@ -87,12 +87,12 @@ public class Soba {
 	}
 
 
-	public Date getKreiran() {
+	public LocalDate getKreiran() {
 		return kreiran;
 	}
 
 
-	public void setKreiran(Date date) {
+	public void setKreiran(LocalDate date) {
 		this.kreiran = date;
 	}
 
